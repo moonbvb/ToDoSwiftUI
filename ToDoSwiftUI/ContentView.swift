@@ -10,6 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // Properties
+    // ==========
+    
     @State var checklistItems = [
         ChecklistItem(name: "Walk the dog"),
         ChecklistItem(name: "Brush my teeth"),
@@ -19,6 +22,7 @@ struct ContentView: View {
         ChecklistItem(name: "Learn iOS development", isChecked: true),
     ]
     
+    // User interface content and layout
     var body: some View {
         NavigationView {
             List {
@@ -28,9 +32,15 @@ struct ContentView: View {
                         Spacer()
                         Text(checklistItem.isChecked ? "✅" : "🔲")
                     }
+                    .background(Color.white) // This makes the entire row clickable. (Coz background take !view! with white color (lol)
+                    .onTapGesture {
+                        if let tappedItemIndex = self.checklistItems.firstIndex(where: { $0.id == checklistItem.id
+                        }) { self.checklistItems[tappedItemIndex].isChecked.toggle()}
+                    }
                 }
                 .onDelete(perform: deleteListItem)
                 .onMove(perform: moveListItem)
+                
             }
             .navigationBarItems(trailing: EditButton())
             .navigationBarTitle("Checklist")
@@ -40,6 +50,9 @@ struct ContentView: View {
         }
     }
     
+    
+    // Methods
+    // =======
     
     func printChecklistContents() {
         for item in checklistItems {
@@ -57,6 +70,9 @@ struct ContentView: View {
         printChecklistContents()
     }
 }
+
+// Preview
+// =======
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
