@@ -17,6 +17,7 @@
 		33F9186624F6D3590083FECD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F9186424F6D3590083FECD /* LaunchScreen.storyboard */; };
 		9239F8FC250A0BBD00D246A7 /* Cheklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239F8FB250A0BBD00D246A7 /* Cheklist.swift */; };
 		9239F8FE250A23D100D246A7 /* EditCheklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239F8FD250A23D100D246A7 /* EditCheklistItemView.swift */; };
+		9239F900250A433500D246A7 /* NewCheklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239F8FF250A433500D246A7 /* NewCheklistItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		33F9186724F6D3590083FECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9239F8FB250A0BBD00D246A7 /* Cheklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cheklist.swift; sourceTree = "<group>"; };
 		9239F8FD250A23D100D246A7 /* EditCheklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCheklistItemView.swift; sourceTree = "<group>"; };
+		9239F8FF250A433500D246A7 /* NewCheklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheklistItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				33F9185824F6D3580083FECD /* SceneDelegate.swift */,
 				9239F8FD250A23D100D246A7 /* EditCheklistItemView.swift */,
 				33F9185D24F6D3580083FECD /* ChecklistView.swift */,
+				9239F8FF250A433500D246A7 /* NewCheklistItemView.swift */,
 				33DDCD5C25002A4800133347 /* ChecklistItem.swift */,
 				9239F8FB250A0BBD00D246A7 /* Cheklist.swift */,
 				33F9185F24F6D3590083FECD /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 				33DDCD5D25002A4800133347 /* ChecklistItem.swift in Sources */,
 				9239F8FC250A0BBD00D246A7 /* Cheklist.swift in Sources */,
 				33F9185924F6D3580083FECD /* SceneDelegate.swift in Sources */,
+				9239F900250A433500D246A7 /* NewCheklistItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

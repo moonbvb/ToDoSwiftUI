@@ -14,6 +14,7 @@ struct ChecklistView: View {
     // ==========
     
     @ObservedObject var checklist = Checklist()
+    @State var newChecklistItemViewIsVisible = false
     
     // User interface content and layout
     var body: some View {
@@ -25,20 +26,30 @@ struct ChecklistView: View {
                         Spacer()
                         Text(checklistItem.isChecked ? "✅" : "🔲")
                     }
-                    .background(Color.white) // This makes the entire row clickable. (Coz background take !view! with white color (lol)
-                    .onTapGesture {
-                        if let tappedItemIndex = self.checklist.items.firstIndex(where: { $0.id == checklistItem.id
-                        }) { self.checklist.items[tappedItemIndex].isChecked.toggle()}
+                        .background(Color.white) // This makes the entire row clickable. (Coz background take !view! with white color (lol)
+                        .onTapGesture {
+                            if let tappedItemIndex = self.checklist.items.firstIndex(where: { $0.id == checklistItem.id
+                            }) { self.checklist.items[tappedItemIndex].isChecked.toggle()}
                     }
                 }
                 .onDelete(perform: checklist.deleteListItem)
                 .onMove(perform: checklist.moveListItem)
                 
             }
-            .navigationBarItems(trailing: EditButton())
-            .navigationBarTitle("Checklist")
-            .onAppear() {
-                self.checklist.printChecklistContents()
+            .navigationBarItems(leading: Button(action: { self.newChecklistItemViewIsVisible = true }) {
+                HStack {
+                    Image(systemName: "plus.circle.fill")
+                    Text("Add item")}
+            }
+            .sheet(isPresented: self.$newChecklistItemViewIsVisible) {
+                NewCheklistItemView()
+//                Text("New item screen coming soon!")
+                },
+                                trailing: EditButton()
+            )
+                .navigationBarTitle("Checklist")
+                .onAppear() {
+                    self.checklist.printChecklistContents()
             }
         }
     }
