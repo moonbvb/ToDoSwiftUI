@@ -42,7 +42,7 @@ struct ChecklistView: View {
                     Text("Add item")}
             }
             .sheet(isPresented: self.$newChecklistItemViewIsVisible) {
-                NewCheklistItemView()
+                NewCheklistItemView(checklist: self.checklist)
 //                Text("New item screen coming soon!")
                 },
                                 trailing: EditButton()
