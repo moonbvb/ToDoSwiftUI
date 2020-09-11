@@ -43,11 +43,11 @@ struct ChecklistView: View {
             }
             .sheet(isPresented: self.$newChecklistItemViewIsVisible) {
                 NewCheklistItemView(checklist: self.checklist)
-//                Text("New item screen coming soon!")
                 },
                                 trailing: EditButton()
             )
-                .navigationBarTitle("Checklist")
+//                .navigationBarTitle("Checklist") // Ловим баг при возврате на эту сцену с newChecklistView. Не нажимаются кнопки navigationBar
+                .navigationBarTitle("Checklist",displayMode: .inline) // displayMode: .inline решает проблему
                 .onAppear() {
                     self.checklist.printChecklistContents()
             }
