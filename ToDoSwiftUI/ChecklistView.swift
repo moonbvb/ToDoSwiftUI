@@ -20,21 +20,12 @@ struct ChecklistView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(checklist.items) { checklistItem in
-                    HStack {
-                        Text(checklistItem.name)
-                        Spacer()
-                        Text(checklistItem.isChecked ? "✅" : "🔲")
-                    }
-                        .background(Color.white) // This makes the entire row clickable. (Coz background take !view! with white color (lol)
-                        .onTapGesture {
-                            if let tappedItemIndex = self.checklist.items.firstIndex(where: { $0.id == checklistItem.id
-                            }) { self.checklist.items[tappedItemIndex].isChecked.toggle()}
-                    }
+                ForEach(checklist.items) { index in
+                    RowView(checklistItem: self.$checklist.items[index])
                 }
+                    
                 .onDelete(perform: checklist.deleteListItem)
                 .onMove(perform: checklist.moveListItem)
-                
             }
             .navigationBarItems(leading: Button(action: { self.newChecklistItemViewIsVisible = true }) {
                 HStack {
@@ -46,7 +37,7 @@ struct ChecklistView: View {
                 },
                                 trailing: EditButton()
             )
-//                .navigationBarTitle("Checklist") // Ловим баг при возврате на эту сцену с newChecklistView. Не нажимаются кнопки navigationBar
+                //                .navigationBarTitle("Checklist") // Ловим баг при возврате на эту сцену с newChecklistView. Не нажимаются кнопки navigationBar
                 .navigationBarTitle("Checklist",displayMode: .inline) // displayMode: .inline решает проблему
                 .onAppear() {
                     self.checklist.printChecklistContents()
