@@ -22,7 +22,6 @@ struct RowView: View {
             }
         }
     }
-    
 }
 
 struct RowView_Previews: PreviewProvider {

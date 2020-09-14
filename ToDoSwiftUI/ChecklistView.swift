@@ -41,6 +41,7 @@ struct ChecklistView: View {
                 .navigationBarTitle("Checklist",displayMode: .inline) // displayMode: .inline решает проблему
                 .onAppear() {
                     self.checklist.printChecklistContents()
+                    self.checklist.saveListItems()
             }
         }
     }

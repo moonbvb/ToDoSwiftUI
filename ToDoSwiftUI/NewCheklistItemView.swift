@@ -26,6 +26,7 @@ struct NewCheklistItemView: View {
                 Button(action: {
                     let newChecklistItem = ChecklistItem(name: self.newItemName)
                     self.checklist.items.append(newChecklistItem)
+                    self.checklist.saveListItems()
                     self.presentationMode.wrappedValue.dismiss()
                     
                 }) {
